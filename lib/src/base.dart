@@ -1,6 +1,8 @@
 import 'package:atomicassets_dart/src/assets.dart';
 import 'package:atomicassets_dart/src/collections.dart';
+import 'package:atomicassets_dart/src/offers.dart';
 import 'package:atomicassets_dart/src/templates.dart';
+import 'package:atomicassets_dart/src/transfers.dart';
 
 import 'schemas.dart';
 
@@ -8,6 +10,14 @@ class AtomicAssets {
   final String endpoint;
 
   AtomicAssets(this.endpoint);
+
+  Transfers newTransfersApi() {
+    return Transfers(endpoint: endpoint, path: "/atomicassets/v1/transfers");
+  }
+
+  Offers newOffersApi() {
+    return Offers(endpoint: endpoint, path: "/atomicassets/v1/offers");
+  }
 
   Templates newTemplatesApi() {
     return Templates(endpoint: endpoint, path: "/atomicassets/v1/templates");
