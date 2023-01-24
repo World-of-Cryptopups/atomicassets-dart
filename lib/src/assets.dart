@@ -9,12 +9,12 @@ class Assets extends Fetcher {
   /// Fetch asset logs.
   ///
   /// `/atomicassets/v1/assets/{ID}/logs`
-  Future<Map<String, dynamic>> getAssetIdLogs(String id,
+  Future<List<Map<String, dynamic>>> getAssetIdLogs(String id,
       {int? page,
       String? order,
       String? actionWhitelist,
       String? actionBlacklist}) async {
-    var params = <String, dynamic>{};
+    var params = <String, String>{};
     if (page != null) {
       params["page"] = page.toString();
     }
@@ -31,7 +31,11 @@ class Assets extends Fetcher {
     final url = Uri.https(endpoint, "$path/$id/logs", params);
     final resp = await get(url);
 
-    return resp.data as Map<String, dynamic>;
+    final respData = resp.data as List;
+    final data = List<Map<String, dynamic>>.from(
+        respData.map((e) => e as Map<String, dynamic>));
+
+    return data;
   }
 
   /// Fetch asset stats.
@@ -88,7 +92,7 @@ class Assets extends Fetcher {
     String? order,
     String? sort,
   }) async {
-    var params = <String, dynamic>{};
+    var params = <String, String>{};
     if (collectionName != null) {
       params["collection_name"] = collectionName;
     }
