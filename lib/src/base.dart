@@ -1,10 +1,16 @@
 import 'package:atomicassets_dart/src/assets.dart';
 import 'package:atomicassets_dart/src/collections.dart';
 
+import 'schemas.dart';
+
 class AtomicAssets {
   final String endpoint;
 
   AtomicAssets(this.endpoint);
+
+  Schemas newSchemasApi() {
+    return Schemas(endpoint: endpoint, path: "/atomicassets/v1/schemas");
+  }
 
   Collections newCollectionsApi() {
     return Collections(
