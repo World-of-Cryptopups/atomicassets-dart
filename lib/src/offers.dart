@@ -6,6 +6,9 @@ class Offers extends Fetcher {
 
   Offers({required this.endpoint, required this.path});
 
+  /// Fetch offers
+  ///
+  /// `/atomicassets/v1/offers`
   Future<List<Map<String, dynamic>>> getOffers({
     String? account,
     String? sender,

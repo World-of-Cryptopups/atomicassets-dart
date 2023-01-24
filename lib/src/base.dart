@@ -1,15 +1,19 @@
+import 'package:atomicassets_dart/src/accounts.dart';
 import 'package:atomicassets_dart/src/assets.dart';
 import 'package:atomicassets_dart/src/collections.dart';
 import 'package:atomicassets_dart/src/offers.dart';
 import 'package:atomicassets_dart/src/templates.dart';
 import 'package:atomicassets_dart/src/transfers.dart';
-
-import 'schemas.dart';
+import 'package:atomicassets_dart/src/schemas.dart';
 
 class AtomicAssets {
   final String endpoint;
 
   AtomicAssets(this.endpoint);
+
+  Accounts newAccountsApi() {
+    return Accounts(endpoint: endpoint, path: "/atomicassets/v1/accounts");
+  }
 
   Transfers newTransfersApi() {
     return Transfers(endpoint: endpoint, path: "/atomicassets/v1/transfers");

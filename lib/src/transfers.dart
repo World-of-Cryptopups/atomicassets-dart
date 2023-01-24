@@ -6,6 +6,9 @@ class Transfers extends Fetcher {
 
   Transfers({required this.endpoint, required this.path});
 
+  /// Fetch transfers
+  ///
+  /// `/atomicassets/v1/transfers`
   Future<List<Map<String, dynamic>>> getTransfers({
     String? account,
     String? sender,
