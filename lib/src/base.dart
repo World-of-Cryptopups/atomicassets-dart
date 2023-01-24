@@ -1,5 +1,6 @@
 import 'package:atomicassets_dart/src/assets.dart';
 import 'package:atomicassets_dart/src/collections.dart';
+import 'package:atomicassets_dart/src/templates.dart';
 
 import 'schemas.dart';
 
@@ -7,6 +8,10 @@ class AtomicAssets {
   final String endpoint;
 
   AtomicAssets(this.endpoint);
+
+  Templates newTemplatesApi() {
+    return Templates(endpoint: endpoint, path: "/atomicassets/v1/templates");
+  }
 
   Schemas newSchemasApi() {
     return Schemas(endpoint: endpoint, path: "/atomicassets/v1/schemas");
