@@ -4,6 +4,8 @@ AtomicAssets API wrapper for Dart.
 
 ## Usage
 
+More examples on how to use in the [examples](./example/)
+
 ```dart
 final atom = AtomicAssets("wax.api.atomicassets.io");
 final api = atom.newAssetsApi();
@@ -19,4 +21,14 @@ for (var el in myAssets) {
 
 ## Implemented api paths
 
-- `/assets`
+- `assets`
+- `collections`
+- `schemas`
+- `templates`
+- `accounts`
+- `transfers`
+- `offers`
+
+##
+
+**tbdsux | 2023**
